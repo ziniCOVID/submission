@@ -1,21 +1,11 @@
 ID,Label,Type,Details,EvidenceData,ImageUrl
-hph,Helen Petousis-Harris,Person,"Associate Professor, Faculty of Medical and Health Sciences, University of Auckland.
-Co-Director Global Vaccine Data Network (GVDN).
-
-During the pandemic HPH was also a memeber of the Covid-19 Vaccine Technical Advisory Group and regularly gave press interviews encouraging vaccine uptake.
-
-https://profiles.auckland.ac.nz/h-petousis-harris
-https://www.globalvaccinedatanetwork.org/helen-petousis-harris-phd-pgdipscidist-bsc","[{""evidenceUrl"":""https://drive.google.com/file/d/1GHaaUn7114d2ISLQspcKxG5DZ0DDbm59/view?usp=drive_link"",""sourceUrl"":""https://www.health.govt.nz/system/files/2023-05/h2022017624_response_letter.pdf"", ""sourceLabel"":""FOIA h2022017624 Response Letter, page 3""}]",https://profiles.auckland.ac.nz/h-petousis-harris/thumbnail
-sw,Siouxsie Wiles,Person,"Associate Professor, Molecular Medicine & Pathology, University of Auckland.
-Siouxsie heads up the Bioluminescent Superbugs Lab, where she and her lab are searching for new antibiotics as well as trying to understand how bacteria evolve to become more infectious.
-
-Her early work in bioluminscence was part of the Imaging TB Consortium.
-",,https://profiles.auckland.ac.nz/s-wiles/thumbnail
-ja,Jacinda Ardern,Person,"Dame Jacinda Kate Laurell Ardern GNZM (/ɑːˈdɜːn/ a-DURN;[1] born 26 July 1980) is a former New Zealand politician, who served as the 40th prime minister of New Zealand and leader of the Labour Party from 2017 to 2023. She was a member of Parliament (MP) as a list MP from 2008 to 2017 and for Mount Albert from 2017 to 2023.",,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Jacinda_Ardern_at_the_2025_Sundance_Film_Festival_03.jpg/250px-Jacinda_Ardern_at_the_2025_Sundance_Film_Festival_03.jpg
-bmgf,Bill & Melinda Gates Foundation,Organisation,The Gates Foundation[a] is an American private foundation founded by Bill Gates and Melinda French Gates. ,,https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Bill_%26_Melinda_Gates_Foundation_NE.jpg/250px-Bill_%26_Melinda_Gates_Foundation_NE.jpg
-pv,Pivotal Ventures,Organisation,Consultant providing advice.,,https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Profile--kelvindavis-390x2-UNC.jpg/250px-Profile--kelvindavis-390x2-UNC.jpg
-itbc,Imaging TB Consortium,Organisation,Group funded by BMGF.,,https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Profile--kelvindavis-390x2-UNC.jpg/250px-Profile--kelvindavis-390x2-UNC.jpg
-vax,Pfizer-BioNTech Vaccine,Product,,,
-biontech,BioNTech,Organisation,,,
-gvdn,Global Vaccine Data Network (GVDN),Organisation,,,
-mg,Melinda Gates,Person,,,
+hph,Helen Petousis-Harris,Person,"Helen Petousis-Harris is an Associate Professor in the Faculty of Medical and Health Sciences at the University of Auckland and Co-Director of the Global Vaccine Data Network. During the COVID-19 pandemic, she served on New Zealand’s COVID-19 Vaccine Technical Advisory Group and regularly appeared in the media encouraging vaccine uptake.",[],https://profiles.auckland.ac.nz/h-petousis-harris/thumbnail
+sw,Siouxsie Wiles,Person,"Siouxsie Wiles is an Associate Professor of Molecular Medicine & Pathology at the University of Auckland, where she leads the Bioluminescent Superbugs Lab. Her team searches for new antibiotics and investigates how bacteria evolve to become more infectious. Her early work on bioluminescence was conducted as part of the Imaging TB Consortium.",,https://profiles.auckland.ac.nz/s-wiles/thumbnail
+ja,Jacinda Ardern,Person,"Jacinda Ardern served as New Zealand’s 40th Prime Minister and Leader of the Labour Party from 2017 to 2023, overseeing the country’s pandemic response and vaccine-rollout strategy.",,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Jacinda_Ardern_at_the_2025_Sundance_Film_Festival_03.jpg/250px-Jacinda_Ardern_at_the_2025_Sundance_Film_Festival_03.jpg
+bmgf,Bill & Melinda Gates Foundation,Organisation,"The Bill & Melinda Gates Foundation is a major U.S.-based private foundation that funds global health and vaccine research, including support for the Imaging TB Consortium and the Global Vaccine Data Network.",,https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Bill_%26_Melinda_Gates_Foundation_NE.jpg/250px-Bill_%26_Melinda_Gates_Foundation_NE.jpg
+pv,Pivotal Ventures,Organisation,"Pivotal Ventures is Melinda Gates’s strategic advisory and investment firm focused on social-progress initiatives, channeling grants and guidance to vaccine-related projects.",,https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Profile--kelvindavis-390x2-UNC.jpg/250px-Profile--kelvindavis-390x2-UNC.jpg
+itbc,Imaging TB Consortium,Organisation,The Imaging TB Consortium is a BMGF-funded research group that uses bioluminescent techniques to study tuberculosis and served as an early collaboration linking Siouxsie Wiles’s lab to broader infectious-disease research.,,https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Profile--kelvindavis-390x2-UNC.jpg/250px-Profile--kelvindavis-390x2-UNC.jpg
+vax,Pfizer-BioNTech Vaccine,Product,"The Pfizer-BioNTech vaccine is the mRNA-based COVID-19 vaccine developed by Pfizer in partnership with BioNTech; it was the primary product subject to safety monitoring, policy debate, and public messaging in New Zealand.",,
+biontech,BioNTech,Organisation,BioNTech is the German biotech company that co-developed the mRNA platform used in the Pfizer-BioNTech COVID-19 vaccine.,,
+gvdn,Global Vaccine Data Network (GVDN),Organisation,The Global Vaccine Data Network is an international consortium co-directed by Helen Petousis-Harris that aggregates vaccine-safety and efficacy data from multiple countries to inform policy and research.,,
+mg,Melinda Gates,Person,"Melinda Gates is the co-founder and co-chair of the Bill & Melinda Gates Foundation, whose philanthropic leadership drives high-level funding priorities for initiatives like the Global Vaccine Data Network and Pivotal Ventures.",,

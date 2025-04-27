@@ -81,12 +81,15 @@ async function initializeDashboard() {
             // Parse EvidenceData if it exists
             if (edge.EvidenceData) {
                 try {
+                    console.log(`Processing edge ${edge.ID} evidence:`, edge.EvidenceData);
                     edge.EvidenceData = JSON.parse(edge.EvidenceData);
+                    console.log(`Parsed evidence for edge ${edge.ID}:`, edge.EvidenceData);
                 } catch (e) {
                     console.warn(`Could not parse EvidenceData for edge ${edge.ID}:`, e);
                     edge.EvidenceData = [];
                 }
             } else {
+                console.log(`No evidence data for edge ${edge.ID}`);
                 edge.EvidenceData = [];
             }
             
@@ -126,8 +129,10 @@ async function initializeDashboard() {
  * Load and parse CSV file using PapaParse
  */
 function loadCSV(filename) {
+    // Add cache-busting parameter
+    const cacheBuster = `?_=${new Date().getTime()}`;
     return new Promise((resolve, reject) => {
-        Papa.parse(filename, {
+        Papa.parse(filename + cacheBuster, {
             download: true,
             header: true,
             skipEmptyLines: true,
@@ -495,44 +500,62 @@ function displayEvidence(evidenceArray) {
     }
 
     evidenceArray.forEach((evidence, index) => {
-        if (!evidence.evidenceUrl) return;
+        // Check for either evidenceUrl or localPath
+        const evidencePath = evidence.localPath || evidence.evidenceUrl;
+        if (!evidencePath) return;
 
         const itemDiv = document.createElement('div');
         itemDiv.classList.add('evidence-item');
 
-        // Check if it's an image URL
-        const isImage = /\.(jpg|jpeg|png|gif|bmp|webp|svg)$/i.test(evidence.evidenceUrl);
-
-        if (isImage) {
-            const img = document.createElement('img');
-            img.src = evidence.evidenceUrl;
-            img.alt = `Evidence ${index + 1}`;
-            img.onerror = () => {
-                console.warn('Failed to load image:', evidence.evidenceUrl);
-                img.remove();
-                const link = document.createElement('a');
-                link.href = evidence.evidenceUrl;
-                link.target = '_blank';
-                link.textContent = `View Evidence ${index + 1}`;
-                itemDiv.insertBefore(link, itemDiv.firstChild);
-            };
-            itemDiv.appendChild(img);
-        } else {
-            const link = document.createElement('a');
-            link.href = evidence.evidenceUrl;
-            link.target = '_blank';
-            link.textContent = `View Evidence ${index + 1}`;
-            itemDiv.appendChild(link);
-        }
-
-        // Add source link if available
+        // Create image container
+        const imgContainer = document.createElement('div');
+        imgContainer.style.marginBottom = '20px';
+        
+        // Add image
+        const img = document.createElement('img');
+        // Handle the path - use localPath if available, otherwise use evidenceUrl
+        const imagePath = evidencePath.startsWith('http') ? 
+            evidencePath : 
+            evidencePath.replace(/^\//, '').replace(/\\/g, '/');  // Replace backslashes with forward slashes
+            
+        img.src = imagePath;
+        img.alt = `Evidence ${index + 1}`;
+        img.style.display = 'block';
+        img.style.maxWidth = '100%';
+        img.style.height = 'auto';
+        
+        // Add error handling with more details
+        img.onerror = () => {
+            console.warn('Failed to load image:', imagePath);
+            img.style.display = 'none';
+            const errorText = document.createElement('div');
+            errorText.style.color = 'red';
+            errorText.style.marginBottom = '10px';
+            errorText.innerHTML = `Unable to load image:<br>Path: ${imagePath}`;
+            imgContainer.insertBefore(errorText, img);
+        };
+        
+        imgContainer.appendChild(img);
+        
+        // Add source link below the image
         if (evidence.sourceUrl) {
             const sourceLink = document.createElement('a');
             sourceLink.href = evidence.sourceUrl;
             sourceLink.target = '_blank';
+            sourceLink.className = 'source-link';
             sourceLink.textContent = evidence.sourceLabel || '(View Source)';
-            itemDiv.appendChild(document.createTextNode(' '));
-            itemDiv.appendChild(sourceLink);
+            imgContainer.appendChild(sourceLink);
+        }
+        
+        itemDiv.appendChild(imgContainer);
+
+        // Add separator between evidence items
+        if (index < evidenceArray.length - 1) {
+            const separator = document.createElement('hr');
+            separator.style.margin = '15px 0';
+            separator.style.border = 'none';
+            separator.style.borderBottom = '1px solid #eee';
+            itemDiv.appendChild(separator);
         }
 
         evidenceListEl.appendChild(itemDiv);
@@ -705,12 +728,12 @@ function buildClusterPath(clusterId) {
     const nodes = config.nodes;
 
     // Build the path including edges
-    for (let i = 0; i < nodes.length - 1; i++) {  // Stop at second-to-last node
+    for (let i = 0; i < nodes.length; i++) {  // Now go through all nodes
         const currentNode = nodes[i];
         path.push({ type: 'Node', id: currentNode });
 
-        // Find edge to next node
-        const nextNode = nodes[i + 1];
+        // Find edge to next node (or back to first node if we're at the last node)
+        const nextNode = i < nodes.length - 1 ? nodes[i + 1] : nodes[0];
         const edge = edgesDataset.get().find(e => 
             (e.from === currentNode && e.to === nextNode) ||
             (e.to === currentNode && e.from === nextNode)
@@ -720,9 +743,6 @@ function buildClusterPath(clusterId) {
             path.push({ type: 'Edge', id: edge.id });
         }
     }
-
-    // Add the final node (vaccine)
-    path.push({ type: 'Node', id: nodes[nodes.length - 1] });
 
     config.path = path;
     return path;
@@ -913,6 +933,11 @@ function initializeClusterButtons() {
 
 // Add to initialization
 window.addEventListener('load', () => {
+    // Clear any cached data
+    nodesDataset.clear();
+    edgesDataset.clear();
+    localStorage.clear();  // Clear any local storage data
+    
     initializeDashboard().then(() => {
         // Show default view with clusters immediately after initialization
         resetDetailsPanel(true);

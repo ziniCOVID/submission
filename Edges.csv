@@ -1,15 +1,15 @@
 ID,From,To,Label,Details,EvidenceData
-rel1,hph,gvdn,Directs,,"[{""evidenceUrl"":""https://drive.google.com/file/d/1oT6SvRCZsXE116SscwOKp3CnmHzIrLe7/view?usp=drive_link"",""sourceUrl"":""https://deepmind.google/technologies/gemini/pro/"", ""sourceLabel"":""Example News (2024, Feb 28)""},{""evidenceUrl"":""https://drive.google.com/file/d/1oT6SvRCZsXE116SscwOKp3CnmHzIrLe7/view?usp=drive_link"",""sourceUrl"":""https://deepmind.google/technologies/gemini/pro/"", ""sourceLabel"":""Testing News (2024, Feb 28)""},{""evidenceUrl"":""https://drive.google.com/file/d/1oT6SvRCZsXE116SscwOKp3CnmHzIrLe7/view?usp=drive_link"",""sourceUrl"":""https://deepmind.google/technologies/gemini/pro/"", ""sourceLabel"":""Example News (2024, Feb 28)""},{""evidenceUrl"":""https://drive.google.com/file/d/1oT6SvRCZsXE116SscwOKp3CnmHzIrLe7/view?usp=drive_link"",""sourceUrl"":""https://deepmind.google/technologies/gemini/pro/"", ""sourceLabel"":""Example News (2024, Feb 28)""}]"
-rel2,bmgf,gvdn,Funds,,
-rel3,gvdn,vax,Analyses,,
-rel4,hph,vax,Promotes,,
-rel5,bmgf,biontech,Owns,,
-rel6,biontech,vax,Invented,,
-rel7,vax,biontech,Shares Revenue,,
-rel8,bmgf,itbc,Funded,,
-rel9,itbc,sw,Funded,,
-rel10,sw,vax,Promotes,,
-rel11,mg,bmgf,Owns,,
-rel12,mg,pv,Owns,,
-rel13,pv,ja,Funded,,
-rel14,ja,vax,Promotes,,
+rel1,hph,gvdn,Directs,"As Co-Director of the Global Vaccine Data Network, Helen Petousis-Harris leads the organization's research and policy initiatives.",[]
+rel2,bmgf,gvdn,Funds,The Bill & Melinda Gates Foundation provides funding support to the Global Vaccine Data Network for vaccine safety monitoring.,"[{""evidenceUrl"": ""/public/images/a4059e48-e465-4eff-9b8e-015ce3f8a3de.png"", ""localPath"": ""public/images/a4059e48-e465-4eff-9b8e-015ce3f8a3de.png"", ""sourceUrl"": ""https://globalvaccinedatanetwork.org/aboutus/our-funding"", ""sourceLabel"": ""GVDN: Our Funding""}]"
+rel3,gvdn,vax,Analyses,The Global Vaccine Data Network conducts safety monitoring and analysis of the Pfizer-BioNTech vaccine's performance across multiple countries.,"[{""evidenceUrl"": ""/public/images/aff8e379-12b1-4332-b65c-fafd8e547a29.png"", ""localPath"": ""public/images/aff8e379-12b1-4332-b65c-fafd8e547a29.png"", ""sourceUrl"": ""https://www.auckland.ac.nz/en/news/2024/02/19/99million-people-in-largest-global-vaccine-study.html"", ""sourceLabel"": ""University of Auckland News""}]"
+rel4,hph,vax,Promotes,Helen Petousis-Harris advocates for vaccine uptake through media appearances and public health communications.,[]
+rel5,bmgf,biontech,Owns,The Bill & Melinda Gates Foundation holds ownership stakes in BioNTech through investments.,[]
+rel6,biontech,vax,Invented,BioNTech developed the mRNA technology platform used in the Pfizer-BioNTech COVID-19 vaccine.,[]
+rel7,vax,biontech,Shares Revenue,The Pfizer-BioNTech vaccine generates revenue that is shared between the partner companies.,[]
+rel8,bmgf,itbc,Funded,The Bill & Melinda Gates Foundation funded the Imaging TB Consortium's research initiatives.,[]
+rel9,itbc,sw,Funded,The Imaging TB Consortium supported Siouxsie Wiles's early bioluminescence research.,[]
+rel10,sw,vax,Promotes,Siouxsie Wiles actively promotes vaccine uptake through media appearances and public communications.,[]
+rel11,mg,bmgf,Owns,Melinda Gates co-owns and co-chairs the Bill & Melinda Gates Foundation.,[]
+rel12,mg,pv,Owns,"Melinda Gates owns Pivotal Ventures, her investment and incubation company.",[]
+rel13,pv,ja,Funded,Pivotal Ventures has provided funding support for initiatives connected to Jacinda Ardern's leadership.,[]
+rel14,ja,vax,Promotes,"As Prime Minister, Jacinda Ardern promoted vaccine uptake and led New Zealand's vaccination strategy.",[]

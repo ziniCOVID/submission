@@ -191,7 +191,6 @@ html, body {
 .evidence-item {
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px dotted #eee;
     line-height: 1.4;
 }
 
@@ -203,10 +202,18 @@ html, body {
     max-width: 95%;
     height: auto;
     display: block;
-    margin-top: 5px;
-    margin-bottom: 8px;
+    margin: 0 0 8px 0;
     border: 1px solid #eee;
     background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#evidence-list .source-link {
+    display: block;
+    margin-top: 5px;
+    padding-left: 5px;
+    border-left: 3px solid #eee;
 }
 
 #evidence-list a {
@@ -215,10 +222,12 @@ html, body {
     text-decoration: none;
     word-break: break-all;
     margin-right: 10px;
+    transition: color 0.2s;
 }
 
 #evidence-list a:hover {
     text-decoration: underline;
+    color: #0056b3;
 }
 
 #evidence-list i {
