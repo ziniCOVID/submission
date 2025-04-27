@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Inquiry Network</title>
+    
+    <!-- Vis.js Network -->
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <link href="https://unpkg.com/vis-network/styles/vis-network.min.css" rel="stylesheet" type="text/css" />
+    
+    <!-- PapaParse for CSV parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    
+    <!-- Our styles -->
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Meta tags for better sharing -->
+    <meta property="og:title" content="COVID-19 Inquiry Network">
+    <meta property="og:description" content="Interactive visualization of relationships between organizations, individuals, and events related to COVID-19 vaccine development and distribution in New Zealand.">
+    <meta property="og:type" content="website">
+  </head>
+  <body>
+    <div id="container">
+      <!-- Graph Area -->
+      <div id="graph-container">
+        <div id="loading-graph">Loading Graph...</div>
+        <div id="mynetwork"></div>
+      </div>
+
+      <!-- Details Panel -->
+      <div id="details-panel">
+        <div id="details-content">
+          <div id="details-top-wrapper">
+            <div id="details-left-col">
+              <h3 id="details-title">COVID-19 Inquiry Network</h3>
+              <p id="details-text">This network visualizes key relationships between organizations, individuals, and events related to COVID-19 vaccine development and distribution in New Zealand.</p>
+            </div>
+            <div id="details-right-col">
+              <img id="details-image" src="" alt="Item Image" style="display: none;" />
+              <div id="details-related">
+                <h4>Related Items</h4>
+                <div id="related-list"></div>
+              </div>
+            </div>
+          </div>
+          <div id="details-evidence">
+              <h4>Highlighted Clusters</h4>
+              <div id="evidence-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our JavaScript -->
+    <script src="js/main.js"></script>
+
+    <style>
+      #details-panel a {
+        color: #0066cc;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      #details-panel a:hover {
+        text-decoration: underline;
+      }
+      .related-item {
+        margin-bottom: 8px;
+      }
+      .related-label {
+        color: #666;
+        margin-left: 4px;
+      }
+      .cluster-navigation {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 15px;
+      }
+      .cluster-navigation a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+      .cluster-navigation a:hover {
+        text-decoration: underline;
+      }
+      #details-right-col {
+        display: none;  /* Hide by default */
+      }
+    </style>
+  </body>
+</html>

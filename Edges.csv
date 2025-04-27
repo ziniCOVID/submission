@@ -1,0 +1,15 @@
+ID,From,To,Label,Details,EvidenceData
+rel1,hph,gvdn,Directs,,"[{""evidenceUrl"":""https://drive.google.com/file/d/1oT6SvRCZsXE116SscwOKp3CnmHzIrLe7/view?usp=drive_link"",""sourceUrl"":""https://deepmind.google/technologies/gemini/pro/"", ""sourceLabel"":""Example News (2024, Feb 28)""},{""evidenceUrl"":""https://drive.google.com/file/d/1oT6SvRCZsXE116SscwOKp3CnmHzIrLe7/view?usp=drive_link"",""sourceUrl"":""https://deepmind.google/technologies/gemini/pro/"", ""sourceLabel"":""Testing News (2024, Feb 28)""},{""evidenceUrl"":""https://drive.google.com/file/d/1oT6SvRCZsXE116SscwOKp3CnmHzIrLe7/view?usp=drive_link"",""sourceUrl"":""https://deepmind.google/technologies/gemini/pro/"", ""sourceLabel"":""Example News (2024, Feb 28)""},{""evidenceUrl"":""https://drive.google.com/file/d/1oT6SvRCZsXE116SscwOKp3CnmHzIrLe7/view?usp=drive_link"",""sourceUrl"":""https://deepmind.google/technologies/gemini/pro/"", ""sourceLabel"":""Example News (2024, Feb 28)""}]"
+rel2,bmgf,gvdn,Funds,,
+rel3,gvdn,vax,Analyses,,
+rel4,hph,vax,Promotes,,
+rel5,bmgf,biontech,Owns,,
+rel6,biontech,vax,Invented,,
+rel7,vax,biontech,Shares Revenue,,
+rel8,bmgf,itbc,Funded,,
+rel9,itbc,sw,Funded,,
+rel10,sw,vax,Promotes,,
+rel11,mg,bmgf,Owns,,
+rel12,mg,pv,Owns,,
+rel13,pv,ja,Funded,,
+rel14,ja,vax,Promotes,,
