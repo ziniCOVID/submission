@@ -387,15 +387,29 @@ function updateDetailsPanel(itemData, itemType) {
     // Show related items
     populateRelatedItems(itemData, itemType);
 
-    // Show evidence section
-    document.getElementById('details-evidence').style.display = 'block';
-    document.querySelector('#details-evidence h4').textContent = 'Evidence';
+    // Only show the "Evidence" title + images if evidence actually exists.
+    const detailsEvidenceContainer = document.getElementById('details-evidence');
+    const evidenceHeading = detailsEvidenceContainer.querySelector('h4');
+
+    // Clear out any previous evidence items
     evidenceListEl.innerHTML = '';
-    if (itemData.EvidenceData && Array.isArray(itemData.EvidenceData) && itemData.EvidenceData.length > 0) {
+
+    if (
+        itemData.EvidenceData &&
+        Array.isArray(itemData.EvidenceData) &&
+        itemData.EvidenceData.length > 0
+    ) {
+        // Show the evidence container and set its heading
+        detailsEvidenceContainer.style.display = 'block';
+        evidenceHeading.textContent = 'Evidence';
+
+        // Populate the list
         displayEvidence(itemData.EvidenceData);
     } else {
-        evidenceListEl.innerHTML = '<i></i>';
+        // Hide the entire evidence section (including the <h4>)
+        detailsEvidenceContainer.style.display = 'none';
     }
+
 
     // Remove any existing overview section if it exists
     const existingOverview = detailsContentEl.querySelector('.overview-section');
