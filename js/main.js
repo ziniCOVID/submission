@@ -347,7 +347,7 @@ function resetDetailsPanel(showDefaultMessage = false) {
             let description = config.shortDescription
                 .replace(/^Shows (how |the )?|^Demonstrates |^Illustrates |Shows the |Demonstrates the |Illustrates the /, '')
                 .replace(/^relationship |^connection |^pathway /, '');
-            label.textContent = shortDescription;
+            label.textContent = description;
             
             div.appendChild(link);
             div.appendChild(label);
