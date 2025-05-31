@@ -807,7 +807,7 @@ function displayClusterDetails(clusterId) {
     overviewDiv.style.marginBottom = '20px';
     // Show the cluster description again, then the generic message
     overviewDiv.innerHTML = `
-        <div style="margin-bottom: 8px;">${config.description}</div>
+        <div style="margin-bottom: 8px;">${config.shortDescription}</div>
         <p style="color: #666; margin-bottom: 10px;"</p>
     `;
     detailsTextEl.parentNode.insertBefore(overviewDiv, detailsTextEl.nextSibling);
