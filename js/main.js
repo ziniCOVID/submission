@@ -34,7 +34,7 @@ const clusterConfigs = {
         nodes: ['hph','vax', 'biontech', 'bmgf', 'gvdn'],  // Petoussis-Harris -> GVDN -> BMGF -> BioNTech -> Vaccine
         radius: 250,
         title: 'Helen Petoussis-Harris Cluster',
-        description: 'This network cluster shows how the Bill & Melinda Gates Foundation’s funding and ownership tie into the promotion and revenue flow of the Pfizer-BioNTech COVID-19 vaccine. At the bottom, the Foundation owns a stake in BioNTech, which invented the Pfizer-BioNTech vaccine; revenue from vaccine sales flows back into BioNTech and ultimately benefits the Foundation. On the left, the Foundation also funds the Global Vaccine Data Network (GVDN). The GVDN conducts analyses of the Pfizer-BioNTech vaccine and is directed by Helen Petousis-Harris. Petousis-Harris uses her role at the GVDN to publicly promote the Pfizer-BioNTech vaccine. In other words, Foundation funding supports both BioNTech (through ownership) and the GVDN’s vaccine analyses, and those analyses and endorsements by Petousis-Harris help drive vaccine promotion—while vaccine revenues cycle back to benefit the Foundation.',
+        description: 'This network cluster shows how the Bill & Melinda Gates Foundation's funding and ownership tie into the promotion and revenue flow of the Pfizer-BioNTech COVID-19 vaccine. At the bottom, the Foundation owns a stake in BioNTech, which invented the Pfizer-BioNTech vaccine; revenue from vaccine sales flows back into BioNTech and ultimately benefits the Foundation. On the left, the Foundation also funds the Global Vaccine Data Network (GVDN). The GVDN conducts analyses of the Pfizer-BioNTech vaccine and is directed by Helen Petousis-Harris. Petousis-Harris uses her role at the GVDN to publicly promote the Pfizer-BioNTech vaccine. In other words, Foundation funding supports both BioNTech (through ownership) and the GVDN's vaccine analyses, and those analyses and endorsements by Petousis-Harris help drive vaccine promotion—while vaccine revenues cycle back to benefit the Foundation.',
         path: []
     }
 };
@@ -326,19 +326,44 @@ function resetDetailsPanel(showDefaultMessage = false) {
             link.href = '#';
             link.setAttribute('data-cluster', clusterId);
             link.textContent = config.title;
+            link.style.display = 'block';
+            link.style.fontWeight = 'bold';
+            link.style.marginBottom = '5px';
             
             const label = document.createElement('div');  // Changed to div for block display
             label.classList.add('related-label');
-            label.style.marginTop = '5px';  // Add space between title and description
+            label.style.marginTop = '0px';  // No extra space needed
             label.style.display = 'block';  // Make description appear on new line
-            // Remove leading phrases and make description more concise
-            let description = config.description
-                .replace(/^Shows (how |the )?|^Demonstrates |^Illustrates |Shows the |Demonstrates the |Illustrates the /, '')
-                .replace(/^relationship |^connection |^pathway /, '');
-            label.textContent = description;
+            // Show only the first two lines or ~160 chars, then ...
+            let shortDesc = config.description;
+            if (shortDesc.length > 160) {
+                shortDesc = shortDesc.slice(0, 160);
+                // Try to cut at the last space before 160 chars for better look
+                const lastSpace = shortDesc.lastIndexOf(' ');
+                if (lastSpace > 100) shortDesc = shortDesc.slice(0, lastSpace);
+                shortDesc += '...';
+            }
+            label.textContent = shortDesc;
+            
+            // Add 'Start Exploring' link
+            const exploreLink = document.createElement('a');
+            exploreLink.href = '#';
+            exploreLink.textContent = `Start Exploring ${config.title}`;
+            exploreLink.setAttribute('data-cluster-explore', clusterId);
+            exploreLink.style.display = 'block';
+            exploreLink.style.color = '#0066cc';
+            exploreLink.style.marginTop = '5px';
+            exploreLink.style.textDecoration = 'underline';
+            
+            exploreLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                arrangeNodesInCircle(config.nodes, config.radius);
+                displayClusterDetails(clusterId);
+            });
             
             div.appendChild(link);
             div.appendChild(label);
+            div.appendChild(exploreLink);
             evidenceListEl.appendChild(div);
         });
         
@@ -781,8 +806,8 @@ function displayClusterDetails(clusterId) {
     overviewDiv.style.marginBottom = '20px';
     // Show the cluster description again, then the generic message
     overviewDiv.innerHTML = `
-        <div style="font-weight: bold; margin-bottom: 8px;">${config.description}</div>
-        <p style="color: #666; margin-bottom: 10px;">Click \"Start Exploring\" to walk through each connection step by step.</p>
+        <div style="margin-bottom: 8px;">${config.description}</div>
+        <p style="color: #666; margin-bottom: 10px;"</p>
     `;
     detailsTextEl.parentNode.insertBefore(overviewDiv, detailsTextEl.nextSibling);
 
