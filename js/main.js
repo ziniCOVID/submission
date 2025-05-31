@@ -344,10 +344,10 @@ function resetDetailsPanel(showDefaultMessage = false) {
             label.style.marginTop = '5px';  // Add space between title and description
             label.style.display = 'block';  // Make description appear on new line
             // Remove leading phrases and make description more concise
-            let description = config.description
+            let description = config.shortDescription
                 .replace(/^Shows (how |the )?|^Demonstrates |^Illustrates |Shows the |Demonstrates the |Illustrates the /, '')
                 .replace(/^relationship |^connection |^pathway /, '');
-            label.textContent = description;
+            label.textContent = shortDescription;
             
             div.appendChild(link);
             div.appendChild(label);
@@ -798,7 +798,7 @@ function displayClusterDetails(clusterId) {
 
     // Set title and description
     detailsTitleEl.textContent = config.title;
-    detailsTextEl.textContent = config.shortDescription;
+    detailsTextEl.textContent = config.Description;
 
     // Add overview description
     const overviewDiv = document.createElement('div');
@@ -807,7 +807,7 @@ function displayClusterDetails(clusterId) {
     overviewDiv.style.marginBottom = '20px';
     // Show the cluster description again, then the generic message
     overviewDiv.innerHTML = `
-        <div style="margin-bottom: 8px;">${config.shortDescription}</div>
+        <div style="margin-bottom: 8px;">${config.Description}</div>
         <p style="color: #666; margin-bottom: 10px;"</p>
     `;
     detailsTextEl.parentNode.insertBefore(overviewDiv, detailsTextEl.nextSibling);
