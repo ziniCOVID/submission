@@ -17,27 +17,39 @@ const evidenceListEl = document.getElementById('evidence-list');
 // Define cluster configurations
 const clusterConfigs = {
     'political-chain': {
-        nodes: ['ja','vax', 'biontech', 'bmgf', 'mg', 'pv'],  // Ardern -> Pivotal -> Melinda -> BMGF -> BioNTech -> Vaccine
-        radius: 250,
-        title: 'Jacinda Ardern Cluster',
-        description: 'This network cluster shows how a small group of people and organizations are connected in promoting and profiting from the Pfizer-BioNTech COVID-19 vaccine. At the center is Melinda Gates, who owns both Pivotal Ventures and the Bill & Melinda Gates Foundation. Pivotal Ventures provides funding to Jacinda Ardern, the Prime Minister of New Zealand. Ardern, in turn, promotes the Pfizer-BioNTech vaccine. That vaccine was invented by BioNTech, a company partly owned by the Gates Foundation, and revenue from vaccine sales flows back into BioNTech and ultimately benefits the Bill & Melinda Gates Foundation. In other words, there is a loop of ownership (Gates Foundation → BioNTech), invention (BioNTech → vaccine), promotion (Ardern → vaccine), and funding (Pivotal Ventures → Ardern), with profits cycling back to the Foundation.',
-        path: []  // Will be populated when cluster is activated
+      nodes: ['ja','vax','biontech','bmgf','mg','pv'],
+      radius: 250,
+      title: 'Jacinda Ardern Cluster',
+      shortDescription:
+        'How Melinda Gates, Jacinda Ardern, BioNTech, and vaccine revenues form a closed loop.',
+      description:
+        'This network cluster shows how a small group of people and organizations are connected in promoting and profiting from the Pfizer-BioNTech COVID-19 vaccine. At the center is Melinda Gates, who owns both Pivotal Ventures and the Bill & Melinda Gates Foundation. Pivotal Ventures provides funding to Jacinda Ardern, the Prime Minister of New Zealand. Ardern, in turn, promotes the Pfizer-BioNTech vaccine. That vaccine was invented by BioNTech, a company partly owned by the Gates Foundation, and revenue from vaccine sales flows back into BioNTech and ultimately benefits the Bill & Melinda Gates Foundation. In other words, there is a loop of ownership (Gates Foundation → BioNTech), invention (BioNTech → vaccine), promotion (Ardern → vaccine), and funding (Pivotal Ventures → Ardern), with profits cycling back to the Foundation.',
+      path: []
     },
+  
     'research-chain': {
-        nodes: ['sw','vax', 'biontech', 'bmgf', 'itbc'],  // Wiles -> ITBC -> BMGF -> BioNTech -> Vaccine
-        radius: 250,
-        title: 'Siouxsie Wiles Cluster',
-        description: 'This network cluster illustrates a chain of connections leading from the Bill & Melinda Gates Foundation to the promotion and profit of the Pfizer-BioNTech COVID-19 vaccine. At the bottom, the Bill & Melinda Gates Foundation owns BioNTech. BioNTech invented the Pfizer-BioNTech vaccine, and revenue from vaccine sales flows back into BioNTech and ultimately benefits the Foundation. On the left, more than a decade ago the Foundation also funded the Imaging TB Consortium; that consortium in turn funded Siouxsie Wiles. Wiles has since promoted the Pfizer-BioNTech vaccine. In other words, there is a loop of ownership (Gates Foundation → BioNTech), invention (BioNTech → vaccine), promotion (Wiles → vaccine), and historical funding (Foundation → TB Consortium → Wiles), with profits cycling back to the Foundation. Note that the Imaging TB Consortium relationship is older and therefore less directly tied to the current vaccine‐promotion activities.',
-        path: []
+      nodes: ['sw','vax','biontech','bmgf','itbc'],
+      radius: 250,
+      title: 'Siouxsie Wiles Cluster',
+      shortDescription:
+        'How an older TB consortium grant to Siouxsie Wiles links back to Gates ownership of BioNTech and vaccine profits.',
+      description:
+        'This network cluster illustrates a chain of connections leading from the Bill & Melinda Gates Foundation to the promotion and profit of the Pfizer-BioNTech COVID-19 vaccine. At the bottom, the Bill & Melinda Gates Foundation owns BioNTech. BioNTech invented the Pfizer-BioNTech vaccine, and revenue from vaccine sales flows back into BioNTech and ultimately benefits the Foundation. On the left, more than a decade ago the Foundation also funded the Imaging TB Consortium; that consortium in turn funded Siouxsie Wiles. Wiles has since promoted the Pfizer-BioNTech vaccine. In other words, there is a loop of ownership (Gates Foundation → BioNTech), invention (BioNTech → vaccine), promotion (Wiles → vaccine), and historical funding (Foundation → TB Consortium → Wiles), with profits cycling back to the Foundation. Note that the Imaging TB Consortium relationship is older and therefore less directly tied to the current vaccine‐promotion activities.',
+      path: []
     },
+  
     'advisory-chain': {
-        nodes: ['hph','vax', 'biontech', 'bmgf', 'gvdn'],  // Petoussis-Harris -> GVDN -> BMGF -> BioNTech -> Vaccine
-        radius: 250,
-        title: 'Helen Petoussis-Harris Cluster',
-        description: 'This network cluster shows how the Bill & Melinda Gates Foundation’s funding and ownership tie into the promotion and revenue flow of the Pfizer-BioNTech COVID-19 vaccine. At the bottom, the Foundation owns a stake in BioNTech, which invented the Pfizer-BioNTech vaccine; revenue from vaccine sales flows back into BioNTech and ultimately benefits the Foundation. On the left, the Foundation also funds the Global Vaccine Data Network (GVDN). The GVDN conducts analyses of the Pfizer-BioNTech vaccine and is directed by Helen Petousis-Harris. Petousis-Harris uses her role at the GVDN to publicly promote the Pfizer-BioNTech vaccine. In other words, Foundation funding supports both BioNTech (through ownership) and the GVDN’s vaccine analyses, and those analyses and endorsements by Petousis-Harris help drive vaccine promotion—while vaccine revenues cycle back to benefit the Foundation.',
-        path: []
+      nodes: ['hph','vax','biontech','bmgf','gvdn'],
+      radius: 250,
+      title: 'Helen Petousis-Harris Cluster',
+      shortDescription:
+        'How Gates funding of GVDN and Petousis-Harris’s analyses feed into promoting and profiting from BioNTech’s vaccine.',
+      description:
+        'This network cluster shows how the Bill & Melinda Gates Foundation’s funding and ownership tie into the promotion and revenue flow of the Pfizer-BioNTech COVID-19 vaccine. At the bottom, the Foundation owns a stake in BioNTech, which invented the Pfizer-BioNTech vaccine; revenue from vaccine sales flows back into BioNTech and ultimately benefits the Foundation. On the left, the Foundation also funds the Global Vaccine Data Network (GVDN). The GVDN conducts analyses of the Pfizer-BioNTech vaccine and is directed by Helen Petousis-Harris. Petousis-Harris uses her role at the GVDN to publicly promote the Pfizer-BioNTech vaccine. In other words, Foundation funding supports both BioNTech (through ownership) and the GVDN’s vaccine analyses, and those analyses and endorsements by Petousis-Harris help drive vaccine promotion—while vaccine revenues cycle back to benefit the Foundation.',
+      path: []
     }
-};
+  };
+  
 
 /**
  * Initialize: Load data and setup visualization
@@ -786,7 +798,7 @@ function displayClusterDetails(clusterId) {
 
     // Set title and description
     detailsTitleEl.textContent = config.title;
-    detailsTextEl.textContent = config.description;
+    detailsTextEl.textContent = config.shortDescription;
 
     // Add overview description
     const overviewDiv = document.createElement('div');
