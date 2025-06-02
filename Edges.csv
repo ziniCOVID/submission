@@ -13,3 +13,7 @@ rel11,mg,bmgf,Owns,Melinda Gates Co-Founded and Co-Chaired the Bill & Melinda Ga
 rel12,mg,pv,Owns,"Melinda Gates owns Pivotal Ventures, her investment and incubation company.","[{""evidenceUrl"": ""/public/images/mgpivotal.png"", ""localPath"": ""public/images/mgpivotal.png"", ""sourceUrl"": ""https://www.linkedin.com/in/melindagates"", ""sourceLabel"": ""Linkedin: Melinda Gates""}]"
 rel13,pv,ja,Funded,Pivotal Ventures has provided significant funding to Jacinda Ardern's leadership.,"[{""evidenceUrl"": ""/public/images/ardernpledge.png"", ""localPath"": ""public/images/ardernpledge.png"", ""sourceUrl"": ""https://www.forbes.com.au/news/investing/melinda-french-gates-pledges-1-5-billion-to-women/"", ""sourceLabel"": ""Pivotal Ventures gives $30M USD to Ardern""}]"
 rel14,ja,vax,Promotes,"As Prime Minister, Jacinda Ardern promoted vaccine uptake and led New Zealand's vaccination strategy.","[{""evidenceUrl"": ""/public/images/twoclasses.png"", ""localPath"": ""public/images/twoclasses.png"", ""sourceUrl"": ""https://www.youtube.com/watch?v=_dD47wO6Qg0"", ""sourceLabel"": ""Ardern makes comment on two classes of people""}]"
+
+rel15,biontech,bmgf,Financial Gain,BMGF bought their stake in BioNTech shortly before they went public and sold them at the peak during vaccine rollout.,[]
+rel16,bmgf,mg,Financial Gain,Trivial,[]
+rel17,pv,mg,Financial Gain,Trivial,[]
