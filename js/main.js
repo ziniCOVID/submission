@@ -170,7 +170,7 @@ function drawGraph() {
             shape: 'dot',
             size: 20,
             font: {
-                size: 12,
+                size: 30,
                 color: '#333'
             },
             borderWidth: 2,
@@ -191,7 +191,7 @@ function drawGraph() {
                 hover: '#848484'
             },
             font: {
-                size: 11,
+                size: 15,
                 align: 'middle',
                 color: '#333',
                 strokeWidth: 2,
