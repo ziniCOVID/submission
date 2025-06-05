@@ -170,7 +170,7 @@ function drawGraph() {
             shape: 'dot',
             size: 20,
             font: {
-                size: 30,
+                size: 27,
                 color: '#333'
             },
             borderWidth: 2,
@@ -193,7 +193,7 @@ function drawGraph() {
             font: {
                 size: 15,
                 align: 'middle',
-                color: '#333',
+                color: '#97C2FC',
                 strokeWidth: 2,
                 strokeColor: '#ffffff',
                 background: '#ffffff'
